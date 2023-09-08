@@ -20,7 +20,7 @@ public:
         task.description = description;
         task.completed = false;
         tasks.push_back(task);
-        cout << "Task '" << description << "' added successfully.\n";
+        cout << "Task '" << description << "' added.\n";
     }
 
     void viewTasks() {
@@ -30,7 +30,7 @@ public:
         }
 
         cout << "Tasks:\n";
-        for (size_t i = 0; i < tasks.size(); ++i) {
+        for (double i = 0; i < tasks.size(); ++i) {
             cout << "[" << (tasks[i].completed ? "X" : " ") << "] " << tasks[i].description << "\n";
         }
     }
@@ -38,18 +38,20 @@ public:
     void mark(int index) {
         if (index >= 1 && index <= static_cast<int>(tasks.size())) {
             tasks[index - 1].completed = true;
-            cout << "Task '" << tasks[index - 1].description << "' marked as completed." << "\n";
-        } else {
-            cout << "Invalid task index." << endl;
+            cout << "Task '" << tasks[index - 1].description << "' marked as completed.\n";
+        } 
+        else
+        {
+            cout << "Invalid task index\n";
         }
     }
 
     void removeTask(int index) {
         if (index >= 1 && index <= static_cast<int>(tasks.size())) {
-            cout << "Task '" << tasks[index - 1].description << "' removed successfully." << "\n";
+            cout << "Task '" << tasks[index - 1].description << "' removed successfully.\n";
             tasks.erase(tasks.begin() + index - 1);
         } else {
-            cout << "Invalid task index." << "\n";
+            cout << "Invalid task index.\n";
         }
     }
 };
@@ -59,12 +61,12 @@ int main() {
     string description; 
 
     while (true) {
-        cout << "To-Do List Manager" << endl;
-        cout << "1. Add Task" << endl;
+        cout << "To-Do List Manager\n";
+        cout << "1. Add Task\n";
         cout << "2. View Tasks" << endl;
-        cout << "3. Mark Task as Completed" << endl;
-        cout << "4. Remove Task" << endl;
-        cout << "5. Quit" << endl;
+        cout << "3. Mark Task as Completed\n";
+        cout << "4. Remove Task\n";
+        cout << "5. Quit\n";
         cout << "Enter your choice: ";
 
         int choice;
@@ -72,9 +74,9 @@ int main() {
 
         switch (choice) {
             case 1:
-                cin.ignore(); // Clear newline character from previous input
+                cin.ignore(); 
                 cout << "Enter task description like '1shopping': ";
-                cin.ignore(); // Clear newline character from previous input
+                cin.ignore();
                 getline(cin, description);
                 todoList.addTask(description);
                 break;
@@ -94,10 +96,10 @@ int main() {
                 todoList.removeTask(indexRemove);
                 break;
             case 5:
-                cout << "Goodbye!" << endl;
+                cout << "Goodbye!\n";
                 return 0;
             default:
-                cout << "Invalid choice try again." << endl;
+                cout << "Invalid choice try again.\n";
         }
     }
 

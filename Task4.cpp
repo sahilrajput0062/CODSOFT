@@ -38,7 +38,7 @@ public:
     void mark(int index) {
         if (index >= 1 && index <= static_cast<int>(tasks.size())) {
             tasks[index - 1].completed = true;
-            cout << "Task '" << tasks[index - 1].description << "' marked as completed." << endl;
+            cout << "Task '" << tasks[index - 1].description << "' marked as completed." << "\n";
         } else {
             cout << "Invalid task index." << endl;
         }
@@ -46,10 +46,10 @@ public:
 
     void removeTask(int index) {
         if (index >= 1 && index <= static_cast<int>(tasks.size())) {
-            cout << "Task '" << tasks[index - 1].description << "' removed successfully." << endl;
+            cout << "Task '" << tasks[index - 1].description << "' removed successfully." << "\n";
             tasks.erase(tasks.begin() + index - 1);
         } else {
-            cout << "Invalid task index." << endl;
+            cout << "Invalid task index." << "\n";
         }
     }
 };

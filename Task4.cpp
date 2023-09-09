@@ -1,4 +1,3 @@
-// TO-DO-LIST
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,7 +14,8 @@ private:
     vector<Task> tasks;
 
 public:
-    void addTask(string& description) {
+    void addTask(string& description)
+    {
         Task task;
         task.description = description;
         task.completed = false;
@@ -23,20 +23,25 @@ public:
         cout << "Task '" << description << "' added.\n";
     }
 
-    void viewTasks() {
-        if (tasks.empty()) {
+    void viewTasks() 
+    {
+        if (tasks.empty()) 
+        {
             cout << "No tasks found.\n";
             return;
         }
 
         cout << "Tasks:\n";
-        for (double i = 0; i < tasks.size(); ++i) {
+        for (double i = 0; i < tasks.size(); ++i) 
+        {
             cout << "[" << (tasks[i].completed ? "X" : " ") << "] " << tasks[i].description << "\n";
         }
     }
 
-    void mark(int index) {
-        if (index >= 1 && index <= static_cast<int>(tasks.size())) {
+    void mark(int index) 
+    {
+        if (index >= 1 && index <= static_cast<int>(tasks.size())) 
+        {
             tasks[index - 1].completed = true;
             cout << "Task '" << tasks[index - 1].description << "' marked as completed.\n";
         } 
@@ -46,21 +51,27 @@ public:
         }
     }
 
-    void removeTask(int index) {
-        if (index >= 1 && index <= static_cast<int>(tasks.size())) {
+    void removeTask(int index) 
+    {
+        if (index >= 1 && index <= static_cast<int>(tasks.size()))
+        {
             cout << "Task '" << tasks[index - 1].description << "' removed successfully.\n";
             tasks.erase(tasks.begin() + index - 1);
-        } else {
+        } 
+        else
+        {
             cout << "Invalid task index.\n";
         }
     }
 };
 
-int main() {
+int main() 
+{
     TodoList todoList;
     string description; 
 
-    while (true) {
+    while (true) 
+    {
         cout << "To-Do List Manager\n";
         cout << "1. Add Task\n";
         cout << "2. View Tasks" << endl;
@@ -71,8 +82,8 @@ int main() {
 
         int choice;
         cin >> choice;
-
-        switch (choice) {
+        switch (choice) 
+        {
             case 1:
                 cin.ignore(); 
                 cout << "Enter task description like '1shopping': ";
